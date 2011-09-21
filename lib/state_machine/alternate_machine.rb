@@ -56,7 +56,7 @@ module StateMachine
 
     def to_state_machine
       queued_sends = @queued_sends
-      lambda {
+      Proc.new {
         queued_sends.each do |args|
           case args.length
           when 2 # method_missing
